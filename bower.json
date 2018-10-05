@@ -1,0 +1,28 @@
+{
+  "name": "drawer-swipe",
+  "description": "Drawer Swipe is a minimalistic swipe detection library for emulating Android drawer swipe gestures.",
+  "main": "dist/drawer-swipe.js",
+  "authors": [
+    "Zeb Zhao"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "android",
+    "drawer",
+    "swipe",
+    "gesture",
+    "emulate",
+    "realistic"
+  ],
+  "homepage": "https://github.com/zebzhao/drawer-swipe#readme",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "gulpfile.js",
+    ".gitignore"
+  ],
+  "dependencies": {}
+}
