@@ -1,6 +1,6 @@
 {
   "name": "drawer-swipe",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Drawer Swipe is a minimalistic swipe detection library for emulating Android drawer swipe gestures.",
   "module": "dist/index.js",
   "main": "dist/drawer-swipe.js",
