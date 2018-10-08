@@ -41,8 +41,8 @@ var DrawerSwipe = function (direction, element) {
     var minValue = Math.min.apply(null, $this._buffer);
     $this._buffer.length = 0;
 
-    var leftToRight = $this.direction & DrawerSwipeDirection.LEFT_TO_RIGHT;
-    var rightToLeft = $this.direction & DrawerSwipeDirection.RIGHT_TO_LEFT;
+    var leftToRight = $this.direction & DrawerSwipe.Direction.LTR;
+    var rightToLeft = $this.direction & DrawerSwipe.Direction.RTL;
     var closeToRight = leftToRight && maxValue >= $this.speedThreshold;
     var closeToLeft = rightToLeft && minValue <= -$this.speedThreshold;
 
@@ -80,8 +80,8 @@ var DrawerSwipe = function (direction, element) {
       }
 
       var width = $this.getWidth();
-      var leftToRight = $this.direction & DrawerSwipeDirection.LEFT_TO_RIGHT;
-      var rightToLeft = $this.direction & DrawerSwipeDirection.RIGHT_TO_LEFT;
+      var leftToRight = $this.direction & DrawerSwipe.Direction.LTR;
+      var rightToLeft = $this.direction & DrawerSwipe.Direction.RTL;
       var percent = Math.round(distanceX / width * 100);
 
       if (!(leftToRight && percent > 0 || rightToLeft && percent < 0)) {
@@ -105,7 +105,7 @@ var DrawerSwipe = function (direction, element) {
 
       if (restart) {
         $this.closeInProgress = false;
-        $this.percent = $this.direction == DrawerSwipeDirection.LEFT_TO_RIGHT ? 100 : -100;
+        $this.percent = $this.direction == DrawerSwipe.Direction.LTR ? 100 : -100;
       }
 
       if (!$this.closeInProgress) {
@@ -121,8 +121,8 @@ var DrawerSwipe = function (direction, element) {
 
       function update() {
         var deltaPercent = 0;
-        var leftToRight = $this.direction & DrawerSwipeDirection.LEFT_TO_RIGHT;
-        var rightToLeft = $this.direction & DrawerSwipeDirection.RIGHT_TO_LEFT;
+        var leftToRight = $this.direction & DrawerSwipe.Direction.LTR;
+        var rightToLeft = $this.direction & DrawerSwipe.Direction.RTL;
 
         if (speed && speed.maxValue) {
           deltaPercent = Math.max(speed.maxValue/3, $this.minimumSpeed)/width * 100;
