@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var umd = require('gulp-umd');
-var pump = require('pump');
 
 gulp.task('build', ['build-minify', 'build-debug']);
 
@@ -20,11 +19,9 @@ gulp.task('build-debug', function () {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('build-minify', ['build-debug'], function (cb) {
-  pump([
-    gulp.src(['dist/drawer-swipe.js']),
-    concat('drawer-swipe.min.js'),
-    uglify(),
-    gulp.dest('./dist/')
-  ], cb);
+gulp.task('build-minify', ['build-debug'], function () {
+  return gulp.src(['dist/drawer-swipe.js'])
+    .pipe(concat('drawer-swipe.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./dist/'));
 });
